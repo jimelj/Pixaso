@@ -1,31 +1,48 @@
-module.exports = {
+var path = require('path');
 
-  // This is the entry point or start of our react applicaton
-  entry: "./app/app.js",
+// build_dir represents the directory path of the bundle file output
+var BUILD_DIR = path.resolve(__dirname, 'public');
+// app_dir holds the directory path of the react application's codebase
+var APP_DIR = path.resolve(__dirname, 'app');
 
-  // The plain compiled JavaScript will be output into this file
+var config = {
+  entry: APP_DIR + '/app.js',
   output: {
-    filename: "public/bundle.js"
+    path: BUILD_DIR,
+    filename: 'bundle.js'
   },
-
-  // This section desribes the transformations we will perform
-  module: {
-    loaders: [
+  module : {
+    rules : [
       {
-        // Only working with files that in in a .js or .jsx extension
-        test: /\.jsx?$/,
-        // Webpack will only process files in our app folder. This avoids processing
-        // node modules and server files unnecessarily
-        include: /app/,
-        loader: "babel-loader",
+        test : /.jsx?/,
+        exclude: /(node_modules|bower_components)/,
+        include: APP_DIR,
+        loader : 'babel-loader',
         query: {
-          // These are the specific transformations we'll be using.
-          presets: ["react", "es2015"]
+          presets: ['react', ['es2015', { "modules": false  }]]
         }
-      }
+      },
+      {
+        test: /\.scss$/,
+        use: [ 'style-loader', 'css-loader', 'sass-loader' ]
+      },
+      {
+      test: /\.jpe?g$|\.gif$|\.png$|\.ttf$|\.eot$|\.svg$/,
+      use: 'file-loader?name=[name].[ext]?[hash]'
+      },
+      {
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'url-loader?limit=10000&mimetype=application/fontwoff'
+      },
     ]
   },
-  // This lets us debug our react code in chrome dev tools. Errors will have lines and file names
-  // Without this the console says all errors are coming from just coming from bundle.js
-  devtool: "eval-source-map"
+  resolve: {
+    extensions: ['.jsx', '.js']
+  },
+  devServer: {
+    contentBase: "public",
+    hot: true
+  }
 };
+
+module.exports = config;

@@ -1,5 +1,6 @@
 // Include React
-import React from "react"
+import React from 'react';
+import './style.scss';
 
 // Creating the Main component
 class Main extends React.Component {
