@@ -3,6 +3,9 @@ import React from 'react';
 import ReactDOM from 'react-dom'
 import './style.scss';
 
+//childs
+import DrawArea from './Draw/Draw';
+
 // Creating the Main component
 class Main extends React.Component {
 
@@ -10,13 +13,6 @@ class Main extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-       let canvas = ReactDOM.findDOMNode(this.refs.myCanvas);
-       let ctx = canvas.getContext('2d');
-       ctx.moveTo(0,0);
-ctx.lineTo(200,100);
-ctx.stroke();
-   }
 
   // Render Page
   render() {
@@ -24,7 +20,7 @@ ctx.stroke();
     return (
       <div>
         <h1>i am here</h1>
-        <canvas ref='myCanvas' className='draw' width="200" height="100"/>
+        <DrawArea/>
       </div>
     );
   }

@@ -3,33 +3,11 @@
   "version": "1.0.0",
   "description": "Hiking",
   "main": "public/index.html",
-  "dependencies": {},
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack -w",
-    "dev": "webpack -w & node server",
-    "start": "webpack & node server "
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jimelj/Wayfarer.git"
-  },
-  "keywords": [
-    "hiking",
-    "trails",
-    "badges"
-  ],
-  "author": "Jimel J. Joseph",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jimelj/Wayfarer/issues"
-  },
-  "homepage": "https://github.com/jimelj/Wayfarer#readme",
   "dependencies": {
     "axios": "^0.16.2",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
+    "immutable": "^3.8.1",
     "mongoose": "^4.10.7",
     "mongoose-unique-validator": "^1.0.5",
     "morgan": "^1.8.2",
@@ -51,5 +29,26 @@
     "url-loader": "^0.5.9",
     "webpack": "^3.0.0",
     "webpack-dev-server": "^2.5.0"
-  }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack -w",
+    "dev": "webpack -w & node server",
+    "start": "webpack & node server "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jimelj/Wayfarer.git"
+  },
+  "keywords": [
+    "hiking",
+    "trails",
+    "badges"
+  ],
+  "author": "Jimel J. Joseph",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jimelj/Wayfarer/issues"
+  },
+  "homepage": "https://github.com/jimelj/Wayfarer#readme"
 }
