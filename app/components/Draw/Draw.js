@@ -1,5 +1,6 @@
 import React from 'react';
 import Immutable from 'immutable';
+import './style.scss';
 
 class DrawArea extends React.Component {
   constructor() {
