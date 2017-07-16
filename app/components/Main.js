@@ -13,8 +13,9 @@ class Main extends React.Component {
   componentDidMount() {
        let canvas = ReactDOM.findDOMNode(this.refs.myCanvas);
        let ctx = canvas.getContext('2d');
-       ctx.fillStyle = 'rgb(200,0,0)';
-       ctx.fillRect(10, 10, 55, 50);
+       ctx.moveTo(0,0);
+ctx.lineTo(200,100);
+ctx.stroke();
    }
 
   // Render Page

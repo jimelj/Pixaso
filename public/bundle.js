@@ -22440,8 +22440,9 @@ var Main = function (_React$Component) {
     value: function componentDidMount() {
       var canvas = __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.findDOMNode(this.refs.myCanvas);
       var ctx = canvas.getContext('2d');
-      ctx.fillStyle = 'rgb(200,0,0)';
-      ctx.fillRect(10, 10, 55, 50);
+      ctx.moveTo(0, 0);
+      ctx.lineTo(200, 100);
+      ctx.stroke();
     }
 
     // Render Page
